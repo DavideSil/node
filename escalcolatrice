@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+/**
+ * Programma che prende il nome come argomento e stampa un saluto personalizzato
+ * 
+ * Utilizzo:
+ *   node saluto.js Mario
+ *   node saluto.js "Mario Rossi"
+ *   node saluto.js Mario Rossi
+ */
+
+// process.argv contiene gli argomenti da riga di comando
+// [0] = percorso node
+// [1] = percorso dello script
+// [2+] = argomenti passati dall'utente
+
+function saluta() {
+  // Ottieni gli argomenti (escludendo i primi due)
+  const args = process.argv.slice(2);
+  
+  
+  // Unisci tutti gli argomenti in un unico nome
+  const nome = args.join(' ');
+  
+  
+  if (ora >= 5 && ora < 12) {
+    salutoTemporale = 'Buongiorno';
+  } else if (ora >= 12 && ora < 18) {
+    salutoTemporale = 'Buon pomeriggio';
+  } else if (ora >= 18 && ora < 22) {
+    salutoTemporale = 'Buonasera';
+  } else {
+    salutoTemporale = 'Buonanotte';
+  }
+  
+  // Stampa il saluto personalizzato
+  console.log('\n' + '='.repeat(50));
+  console.log(`🎉 ${salutoTemporale}, ${nome}!`);
+  console.log(`👋 Benvenuto nel mondo di Node.js!`);
+  console.log('='.repeat(50) + '\n');
+  
+}
+
+// Esegui la funzione
+saluta();
+
+// Output di esempio, eseguendo `node saluto.js "Mario Rossi"` alle 10:30:
+/*
+
+*/
+
